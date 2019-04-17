@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="（一）变量创建变量并初始化变量 var name = ‘张三’; 变量存储引用 使用Object和 dynamic 关键字 dynamic name = ‘张三’ 如果引用的对象没有明确的类型 则用Object或dynamic关键字 如果可以明确引用的对象类型 则 可显示声明 对象类型 例如 String name = ‘张三’; （二）默认值所有未初始化的变量默认值都为null 包括数字 （三）">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-17T11:18:42.204Z">
+<meta property="og:updated_time" content="2019-04-17T11:25:39.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dart学习笔记">
 <meta name="twitter:description" content="（一）变量创建变量并初始化变量 var name = ‘张三’; 变量存储引用 使用Object和 dynamic 关键字 dynamic name = ‘张三’ 如果引用的对象没有明确的类型 则用Object或dynamic关键字 如果可以明确引用的对象类型 则 可显示声明 对象类型 例如 String name = ‘张三’; （二）默认值所有未初始化的变量默认值都为null 包括数字 （三）">
@@ -183,12 +183,19 @@ var _hmt = _hmt || [];
 <p>变量存储引用 使用Object和 dynamic 关键字 dynamic name = ‘张三’ 如果引用的对象没有明确的类型 则用Object或dynamic关键字 如果可以明确引用的对象类型 则 可显示声明 对象类型 例如 String name = ‘张三’;</p>
 <h3 id="（二）默认值"><a href="#（二）默认值" class="headerlink" title="（二）默认值"></a>（二）默认值</h3><p>所有未初始化的变量默认值都为null 包括数字</p>
 <h3 id="（三）-常量"><a href="#（三）-常量" class="headerlink" title="（三） 常量"></a>（三） 常量</h3><ul>
-<li>用final和const定义的变量类型只能被设置一次 const 是隐式final 是一个编译时常量 即在使用const声明的常量必须是已经确定的值 定义第一次使用即为初始化</li>
-<li>被final和const修饰的变量，变量类型可以省略 例如<br>const name1 = ‘张三’;</li>
-<li>final和const不能同时和var使用 但可以和基本类型例如 int String等同时使用</li>
-<li>常量如果是类级别 的 要用 static修饰</li>
-<li>const关键字不只是声明常数变量 也可以使用它来创建常量值 以及声明创建的常量值的巩固早函数 任何变量都可以有一个常量值 // [] 创建的是一个空的list集合 const[]创建的事一个空的 不可变的 列表 （EIL） var varlist = const[]; final finalList = const[]; const constList = const[]; varList = [“haha”];</li>
-<li>只要任何插值表达式是一个计算结果为null或数字 字符串或布尔值的编译时常量，那么文字字符串就是编译时常量</li>
+<li><p>用final和const定义的变量类型只能被设置一次 const 是隐式final 是一个编译时常量 即在使用const声明的常量必须是已经确定的值 定义第一次使用即为初始化</p>
+</li>
+<li><p>被final和const修饰的变量，变量类型可以省略 例如<br>const name1 = ‘张三’;</p>
+</li>
+<li><p>final和const不能同时和var使用 但可以和基本类型例如 int String等同时使用</p>
+</li>
+<li><p>常量如果是类级别 的 要用 static修饰</p>
+</li>
+<li><p>const关键字不只是声明常数变量 也可以使用它来创建常量值 以及声明创建的常量值的巩固早函数 任何变量都可以有一个常量值 // [] 创建的是一个空的list集合 const[]创建的事一个空的 不可变的 列表 （EIL） var varlist = const[]; final finalList = const[]; const constList = const[]; varList = [“haha”];</p>
+</li>
+<li><p>只要任何插值表达式是一个计算结果为null或数字 字符串或布尔值的编译时常量，那么文字字符串就是编译时常量</p>
+<a id="more"></a>
+</li>
 </ul>
 <h2 id="（四）特殊数据类型"><a href="#（四）特殊数据类型" class="headerlink" title="（四）特殊数据类型"></a>（四）特殊数据类型</h2><ul>
 <li>Dart中支持以下特殊类型</li>
