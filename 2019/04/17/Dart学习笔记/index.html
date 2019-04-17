@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>Dart学习笔记 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="（一）变量创建变量并初始化变量 var name = ‘张三’; 变量存储引用 使用Object和 dynamic 关键字 dynamic name = ‘张三’ 如果引用的对象没有明确的类型 则用Object或dynamic关键字 如果可以明确引用的对象类型 则 可显示声明 对象类型 例如 String name = ‘张三’; （二）默认值所有未初始化的变量默认值都为null 包括数字 （三）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dart学习笔记">
+<meta property="og:url" content="http://yoursite.com/2019/04/17/Dart学习笔记/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="（一）变量创建变量并初始化变量 var name = ‘张三’; 变量存储引用 使用Object和 dynamic 关键字 dynamic name = ‘张三’ 如果引用的对象没有明确的类型 则用Object或dynamic关键字 如果可以明确引用的对象类型 则 可显示声明 对象类型 例如 String name = ‘张三’; （二）默认值所有未初始化的变量默认值都为null 包括数字 （三）">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-17T06:57:20.200Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Dart学习笔记">
+<meta name="twitter:description" content="（一）变量创建变量并初始化变量 var name = ‘张三’; 变量存储引用 使用Object和 dynamic 关键字 dynamic name = ‘张三’ 如果引用的对象没有明确的类型 则用Object或dynamic关键字 如果可以明确引用的对象类型 则 可显示声明 对象类型 例如 String name = ‘张三’; （二）默认值所有未初始化的变量默认值都为null 包括数字 （三）">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,175 +154,229 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="blog-Dart学习笔记" class="article article-type-blog " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Dart学习笔记
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-blog">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/17/Dart学习笔记/" class="archive-article-date">
+
+        
+        <a href="/2019/04/17/Dart学习笔记/" class="archive-article-date">
   	<time datetime="2019-04-17T06:53:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/17/Dart学习笔记/">Dart学习笔记</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="（一）变量"><a href="#（一）变量" class="headerlink" title="（一）变量"></a>（一）变量</h3><p>创建变量并初始化变量 var name = ‘张三’;</p>
+<p>变量存储引用 使用Object和 dynamic 关键字 dynamic name = ‘张三’ 如果引用的对象没有明确的类型 则用Object或dynamic关键字 如果可以明确引用的对象类型 则 可显示声明 对象类型 例如 String name = ‘张三’;</p>
+<h3 id="（二）默认值"><a href="#（二）默认值" class="headerlink" title="（二）默认值"></a>（二）默认值</h3><p>所有未初始化的变量默认值都为null 包括数字</p>
+<h3 id="（三）-常量"><a href="#（三）-常量" class="headerlink" title="（三） 常量"></a>（三） 常量</h3><ul>
+<li>用final和const定义的变量类型只能被设置一次 const 是隐式final 是一个编译时常量 即在使用const声明的常量必须是已经确定的值 定义第一次使用即为初始化</li>
+<li>被final和const修饰的变量，变量类型可以省略 例如<br>const name1 = ‘张三’;</li>
+<li>final和const不能同时和var使用 但可以和基本类型例如 int String等同时使用</li>
+<li>常量如果是类级别 的 要用 static修饰</li>
+<li>const关键字不只是声明常数变量 也可以使用它来创建常量值 以及声明创建的常量值的巩固早函数 任何变量都可以有一个常量值 // [] 创建的是一个空的list集合 const[]创建的事一个空的 不可变的 列表 （EIL） var varlist = const[]; final finalList = const[]; const constList = const[]; varList = [“haha”];</li>
+<li>只要任何插值表达式是一个计算结果为null或数字 字符串或布尔值的编译时常量，那么文字字符串就是编译时常量</li>
+</ul>
+<h2 id="（四）特殊数据类型"><a href="#（四）特殊数据类型" class="headerlink" title="（四）特殊数据类型"></a>（四）特殊数据类型</h2><ul>
+<li>Dart中支持以下特殊类型</li>
+<li>numbers 数字</li>
+<li>strings 字符串</li>
+<li>booleans 布尔</li>
+<li>lists list集合</li>
+<li>maps map集合</li>
+<li>runes 字符 （用于在字符串中表示Unicode字符）</li>
+<li>symbols 符号</li>
+</ul>
+<p>1、number int表示 整数 int的取值不大于64位 具体取决于平台 在Dart VM上 值可以从-2的63次方到2的63次方减一</p>
+<p>double 64位 浮点数 如果一个数字包含一个小数 那么它就是double类型</p>
+<p>2、String字符串</p>
+<ul>
+<li>\转义字符</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str = &quot;双引号里面有双引号 编程开发初学必问语句\&quot;hello\&quot;&quot;</span><br><span class="line"></span><br><span class="line">String blankStr = &apos;hello&apos;&apos; &apos;&apos;world&apos;  //运行结果 hello world </span><br><span class="line"></span><br><span class="line">String blankStr5 = &quot;hello&quot;&quot; &quot;&quot; world&quot; //运行结果 hello world</span><br></pre></td></tr></table></figure>
+<ul>
+<li>转义符号的使用<br>声明raw字符串 即在字符串前面加”r” 或者在\前面再加一个 \ 可以避免\ 的转义作用 在正则表达式中特别有用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(r &quot;换行符：\n&quot;); //运行结果  换行符：\n</span><br><span class="line">print(&quot;换行符: \\n&quot;); //运行结果   换行符：\n</span><br><span class="line">print(&quot;换行符：\n&quot;); //运行结果  换行符：</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以使用${表达式}将表达式的值放入字符串中。如果表达式是标识符，则可以跳过{} 为了获得对应于object的字符串，Dart调用object的toString方法</li>
+</ul>
+<h2 id="（五）-bool布尔值"><a href="#（五）-bool布尔值" class="headerlink" title="（五） bool布尔值"></a>（五） bool布尔值</h2><p>为了表示 布尔值 Dart有一个名为类型bool 只有两个对象具有bool类型：true和false 它们都是编译常量</p>
+<h2 id="六-map"><a href="#六-map" class="headerlink" title="(六) map"></a>(六) map</h2><ul>
+<li>创建map有两种方式</li>
+</ul>
+<p>直接声明赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Map companys = &#123;&apos;first&apos;:&apos;阿里巴巴&apos;,&apos;second&apos;:&apos;腾讯&apos;,&apos;fifth&apos;:&apos;百度&apos;&#125;;</span><br><span class="line">print(companys);</span><br></pre></td></tr></table></figure>
+<p>先声明再赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Map company = new Map();</span><br><span class="line">company[&apos;first&apos;] = &apos;阿里巴巴&apos;;</span><br><span class="line">company[&apos;second&apos;] = &apos;腾讯&apos;;</span><br><span class="line">company[&apos;third&apos;] =&apos;百度&apos;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>map的key类型不一致也不会报错，而list则必须要一致</li>
+<li>添加元素的时候，会按照你添加元素的顺序朱哥加入到map里面，哪怕你的key，比如分别是1,2,4 看起来有间隔 事实上添加到map的时候是{1:value,2:value,3:value}</li>
+<li>添加的元素的key如果是map里面某个key的英文，照样可以添加到map里面</li>
+<li>map里面的 key不能相同。但是value可以相同，value可以为空字符串或者为null；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void main()&#123;</span><br><span class="line">    var str1 = &quot;str1&quot;;</span><br><span class="line">    var num1 = 1;</span><br><span class="line">    var double1 = 10.2;</span><br><span class="line">    var bool1 =ture;</span><br><span class="line">    var list1 = [1,2,4,6];</span><br><span class="line">    var map1 = &#123;&quot;age&quot;:123,&quot;name&quot;:&quot;zhangsan&quot;&#125;;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="（六）运算符"><a href="#（六）运算符" class="headerlink" title="（六）运算符"></a>（六）运算符</h2><p>逻辑运算符 lexpr 反转表达式 将false更改为true 反之亦然</p>
+<p>三元运算符 condition?expr1:expr2 如果条件为真 则返回expr1的值 否则返回expr2的值</p>
+<p>expr1 ?? expr2 如果expr1非空，则返回其值；否则评估并返回expr2的值</p>
+<p>类型测试操作符 as 判断属于某种类型</p>
+<p>is 如果对象具有指定的类型，则为true</p>
+<p>is! 如果对象具有指定的类型，则为false</p>
+<h2 id="（七）函数"><a href="#（七）函数" class="headerlink" title="（七）函数"></a>（七）函数</h2><p>main 函数</p>
+<p>每个应用程序都必须有一个顶层main()函数，它可以作为应用程序的入口点。该main()函数返回void 并具有List<string>参数的可选参数</string></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void main()&#123;</span><br><span class="line">    querySelector(&apos;#sample_text_id&apos;)</span><br><span class="line">    ..text = &apos;Click me!&apos;</span><br><span class="line">    ..onClick.listen(reverseText);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>..称为级联。通过级联，可以对单个对象的成员执行多个操作</p>
+<p>级联符号..允许在同一个对象上进行一系列操作。除了函数调用之外，还可以访问同一对象上的字段。</p>
+<p>当返回值为void时 不能构成级联</p>
+<p>严格的说，级联的..符号不是操作符，它只是Dart语法的一部分。</p>
+<p>定义函数时，使用{param1,param2,…}用于指定命名参数</p>
+<p>可选命名参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void enableFlags(&#123;bool bold,bool hidden&#125;)&#123;</span><br><span class="line">    //...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用函数时</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enableFlags(bold:true,hidden:false);</span><br></pre></td></tr></table></figure>
+<p>可选的位置参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Strign say(String from,String msg,[String device])&#123;</span><br><span class="line">    var result = &apos;$from says $msg&apos;;</span><br><span class="line">    if(device != null)&#123;</span><br><span class="line">        result = &quot;$result with a $device&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">say(&apos;Bob&apos;,&apos;Howdy&apos;);//结果是  Bob says Howdy;</span><br><span class="line">say(&apos;Bob&apos;,&apos;Howdy&apos;,&apos;smoke signal&apos;);//结果是  Bob says Howdy with a smoke signal</span><br></pre></td></tr></table></figure>
+<p>默认参数的值</p>
+<p>函数可以使用=为命名参数和位置参数定义默认值 默认值必须是编译时常量，如果没有提供默认值 则默认值为null</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/17/Dart学习笔记/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-blog">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/17/Flutter学习笔记1/" class="archive-article-date">
-  	<time datetime="2019-04-17T06:44:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/17/Flutter学习笔记1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Flutter学习笔记1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/17/Flutter学习笔记1/">Flutter学习笔记1</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">flutter</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-blog">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/17/Flutter学习笔记2/" class="archive-article-date">
-  	<time datetime="2019-04-17T06:40:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/17/Flutter学习笔记2/">Flutter学习笔记2</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">flutter</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/17/hello-Hexo/" class="archive-article-date">
-  	<time datetime="2019-04-17T03:03:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/17/hello-Hexo/">hello,Hexo</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">设计</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -341,8 +399,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

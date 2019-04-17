@@ -152,27 +152,101 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hello-Hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="blog-Dart学习笔记" class="article article-type-blog  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/17/hello-Hexo/">hello,Hexo</a>
+      <a class="article-title" href="/2019/04/17/Dart学习笔记/">Dart学习笔记</a>
     </h1>
   
 
         
-        <a href="/2019/04/17/hello-Hexo/" class="archive-article-date">
-  	<time datetime="2019-04-17T03:03:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-17</time>
+        <a href="/2019/04/17/Dart学习笔记/" class="archive-article-date">
+  	<time datetime="2019-04-17T06:53:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="（一）变量"><a href="#（一）变量" class="headerlink" title="（一）变量"></a>（一）变量</h3><p>创建变量并初始化变量 var name = ‘张三’;</p>
+<p>变量存储引用 使用Object和 dynamic 关键字 dynamic name = ‘张三’ 如果引用的对象没有明确的类型 则用Object或dynamic关键字 如果可以明确引用的对象类型 则 可显示声明 对象类型 例如 String name = ‘张三’;</p>
+<h3 id="（二）默认值"><a href="#（二）默认值" class="headerlink" title="（二）默认值"></a>（二）默认值</h3><p>所有未初始化的变量默认值都为null 包括数字</p>
+<h3 id="（三）-常量"><a href="#（三）-常量" class="headerlink" title="（三） 常量"></a>（三） 常量</h3><ul>
+<li>用final和const定义的变量类型只能被设置一次 const 是隐式final 是一个编译时常量 即在使用const声明的常量必须是已经确定的值 定义第一次使用即为初始化</li>
+<li>被final和const修饰的变量，变量类型可以省略 例如<br>const name1 = ‘张三’;</li>
+<li>final和const不能同时和var使用 但可以和基本类型例如 int String等同时使用</li>
+<li>常量如果是类级别 的 要用 static修饰</li>
+<li>const关键字不只是声明常数变量 也可以使用它来创建常量值 以及声明创建的常量值的巩固早函数 任何变量都可以有一个常量值 // [] 创建的是一个空的list集合 const[]创建的事一个空的 不可变的 列表 （EIL） var varlist = const[]; final finalList = const[]; const constList = const[]; varList = [“haha”];</li>
+<li>只要任何插值表达式是一个计算结果为null或数字 字符串或布尔值的编译时常量，那么文字字符串就是编译时常量</li>
+</ul>
+<h2 id="（四）特殊数据类型"><a href="#（四）特殊数据类型" class="headerlink" title="（四）特殊数据类型"></a>（四）特殊数据类型</h2><ul>
+<li>Dart中支持以下特殊类型</li>
+<li>numbers 数字</li>
+<li>strings 字符串</li>
+<li>booleans 布尔</li>
+<li>lists list集合</li>
+<li>maps map集合</li>
+<li>runes 字符 （用于在字符串中表示Unicode字符）</li>
+<li>symbols 符号</li>
+</ul>
+<p>1、number int表示 整数 int的取值不大于64位 具体取决于平台 在Dart VM上 值可以从-2的63次方到2的63次方减一</p>
+<p>double 64位 浮点数 如果一个数字包含一个小数 那么它就是double类型</p>
+<p>2、String字符串</p>
+<ul>
+<li>\转义字符</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str = &quot;双引号里面有双引号 编程开发初学必问语句\&quot;hello\&quot;&quot;</span><br><span class="line"></span><br><span class="line">String blankStr = &apos;hello&apos;&apos; &apos;&apos;world&apos;  //运行结果 hello world </span><br><span class="line"></span><br><span class="line">String blankStr5 = &quot;hello&quot;&quot; &quot;&quot; world&quot; //运行结果 hello world</span><br></pre></td></tr></table></figure>
+<ul>
+<li>转义符号的使用<br>声明raw字符串 即在字符串前面加”r” 或者在\前面再加一个 \ 可以避免\ 的转义作用 在正则表达式中特别有用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(r &quot;换行符：\n&quot;); //运行结果  换行符：\n</span><br><span class="line">print(&quot;换行符: \\n&quot;); //运行结果   换行符：\n</span><br><span class="line">print(&quot;换行符：\n&quot;); //运行结果  换行符：</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以使用${表达式}将表达式的值放入字符串中。如果表达式是标识符，则可以跳过{} 为了获得对应于object的字符串，Dart调用object的toString方法</li>
+</ul>
+<h2 id="（五）-bool布尔值"><a href="#（五）-bool布尔值" class="headerlink" title="（五） bool布尔值"></a>（五） bool布尔值</h2><p>为了表示 布尔值 Dart有一个名为类型bool 只有两个对象具有bool类型：true和false 它们都是编译常量</p>
+<h2 id="六-map"><a href="#六-map" class="headerlink" title="(六) map"></a>(六) map</h2><ul>
+<li>创建map有两种方式</li>
+</ul>
+<p>直接声明赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Map companys = &#123;&apos;first&apos;:&apos;阿里巴巴&apos;,&apos;second&apos;:&apos;腾讯&apos;,&apos;fifth&apos;:&apos;百度&apos;&#125;;</span><br><span class="line">print(companys);</span><br></pre></td></tr></table></figure>
+<p>先声明再赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Map company = new Map();</span><br><span class="line">company[&apos;first&apos;] = &apos;阿里巴巴&apos;;</span><br><span class="line">company[&apos;second&apos;] = &apos;腾讯&apos;;</span><br><span class="line">company[&apos;third&apos;] =&apos;百度&apos;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>map的key类型不一致也不会报错，而list则必须要一致</li>
+<li>添加元素的时候，会按照你添加元素的顺序朱哥加入到map里面，哪怕你的key，比如分别是1,2,4 看起来有间隔 事实上添加到map的时候是{1:value,2:value,3:value}</li>
+<li>添加的元素的key如果是map里面某个key的英文，照样可以添加到map里面</li>
+<li>map里面的 key不能相同。但是value可以相同，value可以为空字符串或者为null；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void main()&#123;</span><br><span class="line">    var str1 = &quot;str1&quot;;</span><br><span class="line">    var num1 = 1;</span><br><span class="line">    var double1 = 10.2;</span><br><span class="line">    var bool1 =ture;</span><br><span class="line">    var list1 = [1,2,4,6];</span><br><span class="line">    var map1 = &#123;&quot;age&quot;:123,&quot;name&quot;:&quot;zhangsan&quot;&#125;;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="（六）运算符"><a href="#（六）运算符" class="headerlink" title="（六）运算符"></a>（六）运算符</h2><p>逻辑运算符 lexpr 反转表达式 将false更改为true 反之亦然</p>
+<p>三元运算符 condition?expr1:expr2 如果条件为真 则返回expr1的值 否则返回expr2的值</p>
+<p>expr1 ?? expr2 如果expr1非空，则返回其值；否则评估并返回expr2的值</p>
+<p>类型测试操作符 as 判断属于某种类型</p>
+<p>is 如果对象具有指定的类型，则为true</p>
+<p>is! 如果对象具有指定的类型，则为false</p>
+<h2 id="（七）函数"><a href="#（七）函数" class="headerlink" title="（七）函数"></a>（七）函数</h2><p>main 函数</p>
+<p>每个应用程序都必须有一个顶层main()函数，它可以作为应用程序的入口点。该main()函数返回void 并具有List<string>参数的可选参数</string></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void main()&#123;</span><br><span class="line">    querySelector(&apos;#sample_text_id&apos;)</span><br><span class="line">    ..text = &apos;Click me!&apos;</span><br><span class="line">    ..onClick.listen(reverseText);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>..称为级联。通过级联，可以对单个对象的成员执行多个操作</p>
+<p>级联符号..允许在同一个对象上进行一系列操作。除了函数调用之外，还可以访问同一对象上的字段。</p>
+<p>当返回值为void时 不能构成级联</p>
+<p>严格的说，级联的..符号不是操作符，它只是Dart语法的一部分。</p>
+<p>定义函数时，使用{param1,param2,…}用于指定命名参数</p>
+<p>可选命名参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void enableFlags(&#123;bool bold,bool hidden&#125;)&#123;</span><br><span class="line">    //...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用函数时</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enableFlags(bold:true,hidden:false);</span><br></pre></td></tr></table></figure>
+<p>可选的位置参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Strign say(String from,String msg,[String device])&#123;</span><br><span class="line">    var result = &apos;$from says $msg&apos;;</span><br><span class="line">    if(device != null)&#123;</span><br><span class="line">        result = &quot;$result with a $device&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">say(&apos;Bob&apos;,&apos;Howdy&apos;);//结果是  Bob says Howdy;</span><br><span class="line">say(&apos;Bob&apos;,&apos;Howdy&apos;,&apos;smoke signal&apos;);//结果是  Bob says Howdy with a smoke signal</span><br></pre></td></tr></table></figure>
+<p>默认参数的值</p>
+<p>函数可以使用=为命名参数和位置参数定义默认值 默认值必须是编译时常量，如果没有提供默认值 则默认值为null</p>
+
       
 
       
@@ -180,26 +254,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">设计</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/17/hello-Hexo/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/04/17/Dart学习笔记/">展开全文 >></a>
         </p>
       
 
@@ -229,21 +288,282 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="blog-Flutter学习笔记1" class="article article-type-blog  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/17/Flutter学习笔记1/">Flutter学习笔记1</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/17/Flutter学习笔记1/" class="archive-article-date">
+  	<time datetime="2019-04-17T06:44:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-17</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title: hello world</span><br><span class="line">date: 2012-12-19 14:48</span><br><span class="line">comments: true</span><br><span class="line">tags: </span><br><span class="line">	- 设计 </span><br><span class="line">	- 杂谈</span><br></pre></td></tr></table></figure>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="Day01"><a href="#Day01" class="headerlink" title="Day01"></a>Day01</h2><ol>
+<li>什么是Flutter？</li>
+</ol>
+<p>Flutter是一个跨平台（Android和ios）的移动开发框架，使用的是Dart语言</p>
+<p>Flutter的目标是用来创建高性能、高稳定性、高帧率、低延迟的Android和ios应用。并且开发出来的应用在不同平台用起来跟原生应用具有一样的体验。</p>
+<ol>
+<li>为何使用Flutter？</li>
+</ol>
+<p>开发效率高，一套代码可以开发出Android、ios、Fuchsia平台应用，同样的功能只需要很少的代码，如果你只开发一个平台的应用，使用时髦的、更具有表达性的开发语言，也可以让你用更少的代码来实现同样的功能。</p>
+<ol>
+<li>热加载</li>
+</ol>
+<p>在应用运行的时候就可以修改代码并重新加载修改后的功能(hot reload)</p>
+<p>采用Material Design设计语言规范，该规范定义了用户界面上的元素的用途、外观、展现形势以及形态的规范。</p>
+<ol>
+<li>Flutter和ReactNative的比较</li>
+</ol>
+<ul>
+<li>Flutter 是谷歌开发 的一种框架，而ReactNative是Facebook开发 d</li>
+<li>ReactNative的空间都是在原生控件上扩展，如ReactNative里的ListView在android平台下的实现就是继承于android里的LIstView。在Flutter中，它的所有UI组件都是一帧一帧画出来的，这样能够很灵活的做出你想要的效果</li>
+</ul>
+<h2 id="编写第一个Hello-Flutter-程序"><a href="#编写第一个Hello-Flutter-程序" class="headerlink" title="编写第一个Hello Flutter 程序"></a>编写第一个Hello Flutter 程序</h2><p>总结</p>
+<ul>
+<li>runApp是Flutter程序的主入口，需要传入APp级的Widget对象</li>
+<li>StatelessWidget是无状态组件，StatefulWidget是有状态组件</li>
+<li>Scaffold脚手架，类似于客户端的toolbar+内容视图</li>
+<li>StatelessWidget（无状态组件）和StateFulWidget(有状态组件)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line"></span><br><span class="line">void main()&#123;</span><br><span class="line">  runApp(new MaterialApp(home:new MyApp()));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">      return new Scaffold(appBar:</span><br><span class="line">        new AppBar(title: new Text(&quot;Hello Flutter&quot;)),</span><br><span class="line">      body: new Center(child: new Text(&quot;Hello Flutter&quot;)</span><br><span class="line">      )</span><br><span class="line">      );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">MaterialApp(&#123;</span><br><span class="line">    </span><br><span class="line">Key key,</span><br><span class="line">this.navigatorKey,</span><br><span class="line">this.title:&apos;&apos;, 标题</span><br><span class="line">this.onGenerateTitle,</span><br><span class="line">this.theme,</span><br><span class="line">this.backgroundColor,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Scaffold源码：架手架</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const Scaffold(&#123;</span><br><span class="line">    Key key,</span><br><span class="line">    this.appBar,//标题栏</span><br><span class="line">    this.body,//内容</span><br><span class="line">    this.floatingActionButton,//悬浮按钮</span><br><span class="line">    this.persistentFooterButtons.//多状态按钮</span><br><span class="line">    this.drawer.//抽屉菜单</span><br><span class="line">    this.endDrawer,//右侧抽屉菜单</span><br><span class="line">    this.bottomNavigationBar,//底部导航栏</span><br><span class="line">    this.backgroundColor,//背景颜色</span><br><span class="line">    this.resizeToAvoidBottomPadding:true,</span><br><span class="line">    this.primary:true,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>改变app主题颜色</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme:new ThemeData(primaryColor:Colors.red,accentColor:Colors.redAccent)</span><br></pre></td></tr></table></figure>
+<p>总结：</p>
+<ul>
+<li>Widget是Flutter中所有View的基类，widget在不同的平台借助于C++编译成原生代码</li>
+<li>statelessWidget是无状态组件，statefulWidget是有状态组件，InheritedWidget可以向子View树中传递状态和信息</li>
+<li>在Flutter中我们所使用到的View基本上都继承于statelessWIdget、statefulWidget或者InheritedWidget</li>
+<li>MaterialApp是Flutter中满足Google Material Design 设计的组件，通常作为app的入口view</li>
+<li>Scaffold是帮助我们快速开发app的脚手架，借助于Scaffold我们可以快速构架我们应用的答题样子</li>
+</ul>
+<h2 id="Day2"><a href="#Day2" class="headerlink" title="Day2"></a>Day2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const Text(this.data,&#123;</span><br><span class="line">   Key key,</span><br><span class="line">  this.style,//样式</span><br><span class="line">  this.textAlign,//对齐方式</span><br><span class="line">  this.textDirection,//文本方向</span><br><span class="line">  this.softWrap,//是否换行显示</span><br><span class="line">  this.overflow,//超出文本的处理方式</span><br><span class="line">  this.textScaleFactor,//每个逻辑像素的字体像素数，控制字体大小</span><br><span class="line">  this.maxLines//最大行数</span><br><span class="line">&#125;)</span><br><span class="line">const TextStyle(&#123;</span><br><span class="line">    this.inherit:true,</span><br><span class="line">    this.color,//颜色</span><br><span class="line">    this.fontSize,//大小，默认10像素</span><br><span class="line">    this.fontWeight,//是否加粗</span><br><span class="line">    this.fontStyle,//字体</span><br><span class="line">    this.letterSpacing,//字间距</span><br><span class="line">    this.wordSpacing,//字符间距</span><br><span class="line">    String fontFamily //字体</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="Day3"><a href="#Day3" class="headerlink" title="Day3"></a>Day3</h2><ol>
+<li>Image 包括种加载图片的方式</li>
+</ol>
+<p>new Image，用于从ImageProvider获取图像</p>
+<p>new Image.asset 用于从AssetBundle获取图像</p>
+<p>new Image.network 用于从网络URL中获取图像</p>
+<p>new Image.file 用于从文件中获取图像</p>
+<p>new Image.memory 用于从内存中获取图像</p>
+<ol>
+<li>icon</li>
+</ol>
+<p>网站：<a href="http://iconfont.cn" target="_blank" rel="noopener">http://iconfont.cn</a></p>
+<p>flutter中提供了一些内置icon</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child: new Icon(Icons.android,size: 100.0,color: Colors.red)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Container</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Container(&#123;</span><br><span class="line">    Key key,</span><br><span class="line">    this.alignment,//内部widget对齐方式</span><br><span class="line">    Color color,//背景颜色，与decoration只能存在一个</span><br><span class="line">    Decoration decoration,//背景装饰，与decoration 只能存在一个</span><br><span class="line">    this.foregroundDecoration,//前景装饰</span><br><span class="line">    double width,//容器的宽</span><br><span class="line">    height,/容器的高</span><br><span class="line">    this.child,</span><br><span class="line">    this.margin</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>alignment：内部的Widget对齐方式</p>
+<p>左上对齐topLeft，水平居中对齐topCenter 底部居中对齐 bottemCenter 底部右对齐bottomRight</p>
+<p>更改容器的背景图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">decoration: ne w BoxDecration(image: new DecrationImage(image: new NetWorkImage(&quot;&quot;)))</span><br></pre></td></tr></table></figure>
+<p>设置margin和padding</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">margin: const EdgeInsets.all(20.0),</span><br><span class="line">padding: const EdgeInsets.all(20.0),</span><br></pre></td></tr></table></figure>
+<p>color属性和decoration属性不能同时使用</p>
+<p>容器在X方向倾斜0.2度正切</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: new Matrix4.skewX(0.2)</span><br></pre></td></tr></table></figure>
+<p>Layout</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">body: new Row(</span><br><span class="line"> children: &lt;Widget&gt;[</span><br><span class="line"> new Text(&quot;sdffs&quot;),</span><br><span class="line"> new Text(&quot;sdf&quot;),</span><br><span class="line"> new Text(&quot;sdfd&quot;)</span><br><span class="line"> ]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>这种方式如果超出一行的限制字数 会提示溢出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">body: new Row(</span><br><span class="line">children:&lt;Widget&gt;[</span><br><span class="line">new Expanded(child: new Text(&quot;Flutter is Foogle&apos;s mobile UI framework&quot;)),</span><br><span class="line">new Expanded(child: new Text(&quot;Hello flyou &quot;))</span><br><span class="line">]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>Expanded中有一个flex属性 相当于weight 即所占屏幕比重 默认为一 所以三个Text三等分了 如果改变第一个的flex属性为2 则 第一个text所占屏幕比重为2/(2+1+1)=1/2</p>
+<p>练习</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line"></span><br><span class="line">class MyListItem extends StatelessWidget&#123;</span><br><span class="line">  IconData myIcon;</span><br><span class="line">  String title;</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return new Container(</span><br><span class="line">      child: new Row(children: &lt;Widget&gt;[</span><br><span class="line">        new Icon(myIcon,color: Colors.lightBlueAccent,),</span><br><span class="line">        new Expanded(child: new Text(title,textAlign: TextAlign.right,))</span><br><span class="line">      ]),</span><br><span class="line">      decoration: new BoxDecoration(border: new Border(bottom: new BorderSide(</span><br><span class="line">        color: Colors.grey</span><br><span class="line">      ))),</span><br><span class="line">      padding: const EdgeInsets.all(10.0),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  MyListItem(this.myIcon, this.title);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Scaffold</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const Scaffold(&#123;</span><br><span class="line">    Key key,</span><br><span class="line">    this.appBar,//标题栏</span><br><span class="line">    this.body,//内容</span><br><span class="line">    this.floatingActionButton,//悬浮按钮</span><br><span class="line">    this.persistentFooterButtons,//底部持久化实现按钮</span><br><span class="line">    this.drawer,//侧滑菜单左</span><br><span class="line">    this.endDrawer,//侧滑菜单右</span><br><span class="line">    this.bottomNavigationBar,//底部导航</span><br><span class="line">    this.backgroundColor,//背景颜色</span><br><span class="line">    </span><br><span class="line">    this.resizeToAvoidBottomPadding:true//自动适应底部padding</span><br><span class="line">    this.primary:true,//使用primary主色</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Table</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">body: new Table(children:&lt;TableRow&gt;[</span><br><span class="line">      new TableRow(children: &lt;Widget&gt;[</span><br><span class="line">        new Text(&quot;姓名&quot;,textAlign: TextAlign.center,),</span><br><span class="line">        new Text(&quot;职位&quot;,textAlign: TextAlign.center,)</span><br><span class="line">      ]),</span><br><span class="line">      new TableRow(</span><br><span class="line">          children: &lt;Widget&gt;[new Text(&quot;flyou&quot;,textAlign: TextAlign.center), new Text(&quot;终端开发工程师&quot;,textAlign: TextAlign.center)]),</span><br><span class="line">      new TableRow(</span><br><span class="line">          children: &lt;Widget&gt;[new Text(&quot;张三&quot;,textAlign: TextAlign.center), new Text(&quot;Java开发工程师&quot;,textAlign: TextAlign.center)]),</span><br><span class="line">      new TableRow(</span><br><span class="line">          children: &lt;Widget&gt;[new Text(&quot;李四&quot;,textAlign: TextAlign.center), new Text(&quot;大数据开发工程师&quot;,textAlign: TextAlign.center)]),</span><br><span class="line">      new TableRow(</span><br><span class="line">          children: &lt;Widget&gt;[new Text(&quot;王五&quot;,textAlign: TextAlign.center), new Text(&quot;Python数据工程师&quot;,textAlign: TextAlign.center)])</span><br><span class="line">    ],border: new TableBorder.all(color: Colors.grey),),</span><br></pre></td></tr></table></figure>
+<p>手势 Gestures</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line">  runApp(new MaterialApp(home:new myApp()));</span><br><span class="line">&#125;</span><br><span class="line">class myApp extends StatelessWidget&#123;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">       return new Scaffold(</span><br><span class="line">         appBar: new AppBar(title: new Text(&quot;Gestures&quot;),),</span><br><span class="line">         body: new Center(child:new GestureDetector(child: new Icon(Icons.android,size: 200.0,),</span><br><span class="line">         onTap: ()&#123;print(&quot;onTap&quot;);&#125;,</span><br><span class="line">           onDoubleTap: ()&#123;print(&quot;onDoubleTap&quot;);&#125;,</span><br><span class="line">         )),</span><br><span class="line">       );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>IndexedStack</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">body: new IndexedStack(</span><br><span class="line">      index:0,children: &lt;Widget&gt;[</span><br><span class="line"></span><br><span class="line">    new Icon(Icons.check_circle,color: Colors.blue,),</span><br><span class="line">      new Icon(Icons.check_circle,size: 100.0,color: Colors.yellow,),</span><br><span class="line"></span><br><span class="line">    ],),</span><br></pre></td></tr></table></figure>
+<p>Stack</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">body: new Stack(</span><br><span class="line">     children: &lt;Widget&gt;[</span><br><span class="line">    new Icon(Icons.check_circle,color: Colors.blue,),</span><br><span class="line">      new Icon(Icons.check_circle,size: 100.0,color: Colors.yellow,),</span><br><span class="line"></span><br><span class="line">    ],),</span><br></pre></td></tr></table></figure>
+<p>底部导航栏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bottomNavigationBar:new BottomNavigationBar(items:&lt;BottomNavigationBarItem&gt; [</span><br><span class="line">     new BottomNavigationBarItem(icon: new Icon(Icons.shopping_cart), title: new Text(&quot;购物车&quot;)),</span><br><span class="line">     new BottomNavigationBarItem(icon: new Icon(Icons.message), title: new Text(&quot;会话&quot;)),</span><br><span class="line">     new BottomNavigationBarItem(icon: new Icon(Icons.person), title: new Text(&quot;我的&quot;)),</span><br><span class="line">   ],fixedColor: Colors.red,</span><br><span class="line">   currentIndex: 1,),</span><br></pre></td></tr></table></figure>
+<p>分割线</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">new Divider(</span><br><span class="line">    height:1.0,</span><br><span class="line">    color:Colors.grey</span><br><span class="line">)</span><br><span class="line">var _isSwitch = true;</span><br><span class="line">  onSwitchChange(bool isSwitched)&#123;</span><br><span class="line">     setState(() &#123;</span><br><span class="line">       _isSwitch = isSwitched;</span><br><span class="line">     &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">SwitchListTitle(</span><br><span class="line">  value:_isSwitch,</span><br><span class="line">  onChanged:onSwitchChange,</span><br><span class="line">  title:new TExt(&quot;新消息提醒&quot;),</span><br><span class="line">  subTitle(new Text(&quot;&quot;))</span><br><span class="line">  secondery: new Icon(Icons.message)</span><br><span class="line">)</span><br><span class="line"> int radioValue = 0;</span><br><span class="line"></span><br><span class="line">  void onRadioValueChanged(int value) &#123;</span><br><span class="line">    setState(() &#123;</span><br><span class="line">      radioValue = value;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line"> new RadioListTile(</span><br><span class="line">          value: 2,</span><br><span class="line">          groupValue:radioValue ,</span><br><span class="line">          onChanged: onRadioValueChange,</span><br><span class="line">          controlAffinity: ListTileControlAffinity.trailing,</span><br><span class="line">          title: new Text(&quot;定时提醒间隔&quot;),</span><br><span class="line">          subtitle: new Text(&quot;10分钟&quot;),</span><br><span class="line">          secondary: new Icon(</span><br><span class="line">            Icons.timer,</span><br><span class="line">            color: Colors.blueAccent,</span><br><span class="line">          ),</span><br></pre></td></tr></table></figure>
+<p>ListView</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">new ListView(</span><br><span class="line">     children: &lt;Widget&gt;[</span><br><span class="line">       new ListTile(title: new Text(&quot;我是标题&quot;),</span><br><span class="line">         leading: new Icon(Icons.cake,color: Colors.blue,),</span><br><span class="line">         subtitle: new Text(&quot;你好呀&quot;),</span><br><span class="line">       ),</span><br><span class="line">       new ListTile(title: new Text(&quot;我是标题&quot;),</span><br><span class="line">         leading: new Icon(Icons.cake,color: Colors.blue,),</span><br><span class="line">         subtitle: new Text(&quot;你好呀&quot;),</span><br><span class="line">       ),new ListTile(title: new Text(&quot;我是标题&quot;),</span><br><span class="line">         leading: new Icon(Icons.cake,color: Colors.blue,),</span><br><span class="line">         subtitle: new Text(&quot;你好呀&quot;),</span><br><span class="line">       ),</span><br></pre></td></tr></table></figure>
+<p>Future</p>
+<ul>
+<li>Dart是单线程的编程语言</li>
+<li>使用Future可以使同步操作异步化</li>
+<li>Future可以使用asynv和await来回去</li>
+<li>Future可以处理链式调用和多个Future同时返回结果</li>
+</ul>
+<p>SizedBox</p>
+<p>作用： 当_favoriteCount的值变化时，不同的值字体大小可能不一样，把它放在SIzedBox中，可以防止变化太过突出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new SizedBox(width: 18.0,child: new Container(child: new Text(&quot;$_favoriteCount&quot;),),)</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">flutter</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/17/Flutter学习笔记1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="blog-Flutter学习笔记2" class="article article-type-blog  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/17/Flutter学习笔记2/">Flutter学习笔记2</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/17/Flutter学习笔记2/" class="archive-article-date">
+  	<time datetime="2019-04-17T06:40:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、Flutter介绍"><a href="#一、Flutter介绍" class="headerlink" title="一、Flutter介绍"></a>一、Flutter介绍</h1><h2 id="1-1-什么是Flutter"><a href="#1-1-什么是Flutter" class="headerlink" title="1.1 什么是Flutter"></a>1.1 什么是Flutter</h2><p>Flutter是一个跨平台移动UI框架，面向iOS和Android应用，提供一套基础代码的高性能高可靠软件开发工具包，使开发者能够在iOS和Android两个最主要的移动平台上，打造统一代码的高性能应用</p>
+<h2 id="1-2-Flutter的优点和特性"><a href="#1-2-Flutter的优点和特性" class="headerlink" title="1.2 Flutter的优点和特性"></a>1.2 Flutter的优点和特性</h2><ul>
+<li>采用Dart语言开发，实现同样的功能只需要很少的代码</li>
+<li>跨平台，一套代码即可实现Android和ios应用的开发</li>
+<li>拥有reload功能，使得迭代更加方便</li>
+<li>Flutter内置了对Material Design和Cupertino(ios-flavor)的组件库</li>
+<li>提供了可定制的UI组件，开发人员完全控制UI组件和布局</li>
+<li>相比于RN，Flutter避免了使用JavaScript桥接器产生的性能问题</li>
+</ul>
+<p>以下几种情况，热加载没用</p>
+<ul>
+<li>全局变量初始化</li>
+<li>静态变量初始化</li>
+<li>修改main()方法</li>
+</ul>
+<p><strong>为什么使用Dart语言？</strong></p>
+<ul>
+<li>语法简练，实现相同的功能需要很少的代码</li>
+<li>与java语言类似，上手较快</li>
+<li>Dart是用预编译的方式编译多个平台的原生代码，这允许Flutter直接与平台通信，而不需要通过执行上下文切换到javascipt桥接器</li>
+</ul>
+<p>缺点 可读性较差，各种嵌套小括号</p>
+<h2 id="1-3-Flutter虚拟机"><a href="#1-3-Flutter虚拟机" class="headerlink" title="1.3 Flutter虚拟机"></a>1.3 Flutter虚拟机</h2><p>Flutter Engine是Flutter应用程序的运行环境，开发人员可以通过Flutter框架和API在内部进行交互。 Flutter Engine使用C/C++编写，具有低延迟输入和高帧速率的特点。</p>
+<p>Android应用程序是运行在Dalvik虚拟机里面的，并且每一个应用程序对应有一个单独的Dalvik虚拟机实例，但是Flutter应用程序不使用Dalvik虚拟机。</p>
+<p>通过观察安装包的内容，可以发现lib目录的大小约为48M，所以安装包庞大的主因就在lib目录。lib目录下包含x86_64、x86和armeabi-v7a三种CPU类型的指令集，由此可见，Flutter编译的Android应用程序自带独立的虚拟机，也就是上面提到的Flutter Engine。</p>
+<p>Android和iOS系统则是在程序包中内置Flutter Engine虚拟机以运行Flutter应用程序</p>
+<p>RN是将一种设计理念延伸到两个平台，而Flutter则实现了一套代码，部署多个平台。 而Dart “generational garbage collection” 则对于对象消耗资源相对较少的系统非常有效。而且使用单个个pointer bump来完成对象的分配，有助于避免UI卡顿。</p>
+<p>缺点 可读性较差，各种嵌套</p>
+<p>Flutter中UI组件和渲染器都从平台中集成到用户的应用程序中，所以原来虚拟的控件树是真实的控件树，所以渲染和绘制的速度会很快，动画发生在用户空间中，开发人员也可以对其进行很多的控制。有网友在亲测了Flutter后表示：在页面渲染方面，Flutter比RN各具优势，图片量越大，Flutter的流畅度优势越大。 除此之外，在以下方面Flutter也有优势： · 响应式视图，不需要JavaScript的桥接器 · 性能更好，兼容性更好 · 代码将AOT编译为本机(ARM)代码 · 美观，可定制的UI组件，开发人员完全控制UI组件和布局 · 强大的开发者工具，惊人的热重新加载</p>
+<h1 id="二、代码结构"><a href="#二、代码结构" class="headerlink" title="二、代码结构"></a>二、代码结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line"></span><br><span class="line">void main() =&gt; runApp(new MyApp());</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">  </span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return new MaterialApp(</span><br><span class="line">      title: &apos;Flutter Demo&apos;,</span><br><span class="line">      theme: new ThemeData(</span><br><span class="line"></span><br><span class="line">        primarySwatch: Colors.blue,</span><br><span class="line">      ),</span><br><span class="line">      home: new MyHomePage(title: &apos;Flutter Demo Home Page&apos;),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyHomePage extends StatefulWidget &#123;</span><br><span class="line">  MyHomePage(&#123;Key key, this.title&#125;) : super(key: key);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  final String title;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  _MyHomePageState createState() =&gt; new _MyHomePageState();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class _MyHomePageState extends State&lt;MyHomePage&gt; &#123;</span><br><span class="line">  int _counter = 0;</span><br><span class="line"></span><br><span class="line">  void _incrementCounter() &#123;</span><br><span class="line">    setState(() &#123;</span><br><span class="line">      _counter++;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line"></span><br><span class="line">    return new Scaffold(</span><br><span class="line">      appBar: new AppBar(</span><br><span class="line"></span><br><span class="line">        title: new Text(widget.title),</span><br><span class="line">      ),</span><br><span class="line">      body: new Center(</span><br><span class="line"></span><br><span class="line">        child: new Column(</span><br><span class="line"></span><br><span class="line">          mainAxisAlignment: MainAxisAlignment.center,</span><br><span class="line">          children: &lt;Widget&gt;[</span><br><span class="line">            new Text(</span><br><span class="line">              &apos;You have pushed the button this many times:&apos;,</span><br><span class="line">            ),</span><br><span class="line">            new Text(</span><br><span class="line">              &apos;$_counter&apos;,</span><br><span class="line">              style: Theme.of(context).textTheme.display1,</span><br><span class="line">            ),</span><br><span class="line">          ],</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">      floatingActionButton: new FloatingActionButton(</span><br><span class="line">        onPressed: _incrementCounter,</span><br><span class="line">        tooltip: &apos;Increment&apos;,</span><br><span class="line">        child: new Icon(Icons.add),</span><br><span class="line">      ), // This trailing comma makes auto-formatting nicer for build methods.</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先导入包 然后创建Widget控件继承StatelessWidget或者StatefulWidget，重写build方法。</p>
+<p>Scaffold的中文意思是脚手架，顾名思义就是帮助我们快速构建APP</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">const Scaffold(&#123;</span><br><span class="line">    Key key,</span><br><span class="line">    this.appBar,//标题栏</span><br><span class="line">    this.body,//内容</span><br><span class="line">    this.floatingActionButton,//悬浮按钮</span><br><span class="line">    this.persistentFooterButtons.//多状态按钮</span><br><span class="line">    this.drawer.//抽屉菜单</span><br><span class="line">    this.endDrawer,//右侧抽屉菜单</span><br><span class="line">    this.bottomNavigationBar,//底部导航栏</span><br><span class="line">    this.backgroundColor,//背景颜色</span><br><span class="line">    this.resizeToAvoidBottomPadding:true,</span><br><span class="line">    this.primary:true,</span><br><span class="line">&#125;)</span><br><span class="line">MaterialApp(&#123; // can&apos;t be const because the asserts use methods on Map :-(</span><br><span class="line">    Key key,</span><br><span class="line">    this.navigatorKey,</span><br><span class="line">    this.home,</span><br><span class="line">    this.routes: const &lt;String, WidgetBuilder&gt;&#123;&#125;,</span><br><span class="line">    this.initialRoute,</span><br><span class="line">    this.onGenerateRoute,</span><br><span class="line">    this.onUnknownRoute,</span><br><span class="line">    this.navigatorObservers: const &lt;NavigatorObserver&gt;[],</span><br><span class="line">    this.builder,</span><br><span class="line">    this.title: &apos;&apos;,</span><br><span class="line">    this.onGenerateTitle,</span><br><span class="line">    this.color,</span><br><span class="line">    this.theme,</span><br><span class="line">    this.locale,</span><br><span class="line">    this.localizationsDelegates,</span><br><span class="line">    this.localeResolutionCallback,</span><br><span class="line">    this.supportedLocales: const &lt;Locale&gt;[const Locale(&apos;en&apos;, &apos;US&apos;)],</span><br><span class="line">    this.debugShowMaterialGrid: false,</span><br><span class="line">    this.showPerformanceOverlay: false,</span><br><span class="line">    this.checkerboardRasterCacheImages: false,</span><br><span class="line">    this.checkerboardOffscreenLayers: false,</span><br><span class="line">    this.showSemanticsDebugger: false,</span><br><span class="line">    this.debugShowCheckedModeBanner: true,</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<p>然后在main()函数中调用runApp函数，这样就可以启动一个Flutter应用。</p>
+<h1 id="三、控件"><a href="#三、控件" class="headerlink" title="三、控件"></a>三、控件</h1><h2 id="3-1-控件基础"><a href="#3-1-控件基础" class="headerlink" title="3.1 控件基础"></a>3.1 控件基础</h2><p>在Flutter中，一切皆控件，即Widget。Widget是使用Flutter构建UI 的基本模块，是Flutter中统一的对象模型。</p>
+<p>一个Widget可以定义成如下内容</p>
+<ul>
+<li>一个结构化元素，例如按钮，菜单</li>
+<li>一个布局，例如column</li>
+<li>一个风格元素，比如字体或颜色方案</li>
+<li>一个布局的某个属性，如padding</li>
+<li>其他</li>
+</ul>
+<p>一个应用就是由许许多多的Widget组合而成的。Widget通过组合形式构成层次结构，Widget互相嵌套并继承父Widget的属性。</p>
+<p>通过Widget可以响应用户交互，通知框架将视图结构中的Widget替换为另一个Widget，框架会对比新旧Widget然后高效的更新UI。</p>
+<p>基本控件</p>
+<ul>
+<li>Text：文本控件，可创建各种样式的文本</li>
+<li>Container：创建矩形的可视元素，相当于html中的div</li>
+<li>Column、Row：Flex控件，可创建水平或垂直方向的布局</li>
+</ul>
+<h2 id="3-2-StatelessWidget和StatefulWidget"><a href="#3-2-StatelessWidget和StatefulWidget" class="headerlink" title="3.2 StatelessWidget和StatefulWidget"></a>3.2 StatelessWidget和StatefulWidget</h2><h3 id="StatelessWidget"><a href="#StatelessWidget" class="headerlink" title="StatelessWidget"></a>StatelessWidget</h3><p>StatelessWidget为无状态控件，它通过构建一系列的小部件来更加具体描述用户界面，它是静态的，依赖于对象本身的配置信息。</p>
+<h3 id="StatefulWidget"><a href="#StatefulWidget" class="headerlink" title="StatefulWidget"></a>StatefulWidget</h3><p>具有可变状态的组件</p>
+<p>状态是可以在构建Widget时同步读取和在Widget的生命周期期间可能改变的信息。</p>
+<p>StatefulWidget本身是不可变的，将其可变状态存储在由createState方法创建的独立状态对象中，独立状态对象可以改变，当状态改变时，调用setState()来更新用户界面，StatefulWidget显示的内容即发生了改变。</p>
+<p>stateless（无状态）控件没有内部状态来管理。Icon、IconButton和Text是无状态控件的示例，它是StatelessWidget的子类。</p>
+<p>stateful（有状态）控件是动态的。用户可以与有状态控件（比如通过键入内容或移动滑块）进行交互，或者随着时间的推移而变化（比如数据Feed会导致UI更新）。Checkbox、Radio、Slider、InkWell、Form和TextField是有状态小部件的示例，它们是StatefulWidget的子类。</p>
+<h2 id="3-3-可视控件和布局控件"><a href="#3-3-可视控件和布局控件" class="headerlink" title="3.3 可视控件和布局控件"></a>3.3 可视控件和布局控件</h2><p>flutter的内置控件分为两种，一种是可视控件，另一种为布局控件</p>
+<ul>
+<li>可视控件即为我们可以直接看到的控件，由页面直接展示出来的控件，例如text、icon、button</li>
+<li>布局控件，可以理解为支架，例如Column、Row、Container。布局控件是不会直接显示内容的，可以理解为承载可视控件的容器。布局控件都有承载子控件的属性：child或children。child可承载一个子控件，children可承载多个子控件。</li>
+</ul>
+<h1 id="三、路由跳转"><a href="#三、路由跳转" class="headerlink" title="三、路由跳转"></a>三、路由跳转</h1><h2 id="3-1-静态路由"><a href="#3-1-静态路由" class="headerlink" title="3.1 静态路由"></a>3.1 静态路由</h2><p>在Flutter中有着两种路由跳转方式，一种是静态路由，在创建时就已经明确知道了要跳转的页面和值。另一种是动态路由，跳转传入的目标地址和要传入的值都可以是动态的。</p>
+<p>MaterialApp中有着很多属性参数，之前用到的是home，它还有一个属性参数routes用来定义路由。</p>
+<p>创建跳转界面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">routes: &lt;String, WidgetBuilder&gt;&#123;</span><br><span class="line">      &apos;/page2&apos;: (BuildContext context) =&gt; new Page2(&quot;I am from Page1&quot;),</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<p>在onPressed中设置跳转</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onPressed: () &#123;</span><br><span class="line">           Navigator.of(context).pushNamed(&quot;/page2&quot;);</span><br><span class="line">         &#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-动态路由"><a href="#3-2-动态路由" class="headerlink" title="3.2 动态路由"></a>3.2 动态路由</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Navigator.of(context).push(new PageRouteBuilder(</span><br><span class="line">                        pageBuilder: (BuildContext context,</span><br><span class="line">                            Animation&lt;double&gt; animation,</span><br><span class="line">                            Animation&lt;double&gt; secondaryAnimation) &#123;</span><br><span class="line">                          return new Page2(&quot;some attrs you like &quot;);</span><br><span class="line"></span><br><span class="line">                        &#125;))</span><br></pre></td></tr></table></figure>
+<h1 id="四、网络"><a href="#四、网络" class="headerlink" title="四、网络"></a>四、网络</h1><p>导入第三方插件并进行同步：http: ^0.11.3+16</p>
+<p>导入插件：import ‘package:http/http.dart’ as http</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line">import &apos;package:http/http.dart&apos; as http;</span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line">  runApp(new MaterialApp(home: new MyApp(),));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">  void httpGet() &#123;</span><br><span class="line">    print(&quot;请求开始&quot;);</span><br><span class="line">    http.get(&quot;https://api.github.com/users/flyou&quot;).then((response) &#123;</span><br><span class="line">      print(&quot;请求内容：&quot;+response.body);</span><br><span class="line">    &#125;).catchError((error) &#123;</span><br><span class="line">      print(&quot;请求出错：&quot; + error.toString());</span><br><span class="line">    &#125;).whenComplete(() &#123;</span><br><span class="line">      print(&quot;请求完成&quot;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return Scaffold(</span><br><span class="line">      appBar: AppBar(</span><br><span class="line">        title: Text(&quot;网络操作&quot;),</span><br><span class="line">      ),</span><br><span class="line">      body: Center(</span><br><span class="line">        child: RaisedButton(</span><br><span class="line">          onPressed: () &#123;httpGet();&#125;,</span><br><span class="line">          child: Text(&quot;获取用户信息&quot;),</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当用户点击时便会触发上，上面的httpGet方法。 httpGet方法里面会调用http的get请求，请求github api，使用then来接收正常的返回信息，使用catchError来接受异常的信息，当请求完成时会触发whenComplete</p>
+<h1 id="六、异步操作"><a href="#六、异步操作" class="headerlink" title="六、异步操作"></a>六、异步操作</h1><p>Dart是单线程的编程语言</p>
+<p>使用Future可以是同步操作异步化</p>
+<p>Future可以使用async和await来回去</p>
+<p>Future可以处理链式调用和多个Future同时返回结果</p>
+<h1 id="五、数据库"><a href="#五、数据库" class="headerlink" title="五、数据库"></a>五、数据库</h1><p>sqflite: “^0.11.0+1” path_provider: ^0.4.0</p>
 
       
 
@@ -252,11 +572,113 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">flutter</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/17/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/04/17/Flutter学习笔记2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hello-Hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/17/hello-Hexo/">hello,Hexo</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/17/hello-Hexo/" class="archive-article-date">
+  	<time datetime="2019-04-17T03:03:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h3 id="New-Blog"><a href="#New-Blog" class="headerlink" title="New Blog"></a>New Blog</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new blog &quot;name&quot;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">设计</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/17/hello-Hexo/">展开全文 >></a>
         </p>
       
 
@@ -384,6 +806,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">flutter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
               </li>
             
             <div class="clearfix"></div>
