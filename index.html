@@ -179,25 +179,13 @@ var _hmt = _hmt || [];
         <h3 id="（一）变量"><a href="#（一）变量" class="headerlink" title="（一）变量"></a>（一）变量</h3><p>创建变量并初始化变量 var name = ‘张三’;</p>
 <p>变量存储引用 使用Object和 dynamic 关键字 dynamic name = ‘张三’ 如果引用的对象没有明确的类型 则用Object或dynamic关键字 如果可以明确引用的对象类型 则 可显示声明 对象类型 例如 String name = ‘张三’;</p>
 <h3 id="（二）默认值"><a href="#（二）默认值" class="headerlink" title="（二）默认值"></a>（二）默认值</h3><p>所有未初始化的变量默认值都为null 包括数字</p>
-<h3 id="（三）-常量"><a href="#（三）-常量" class="headerlink" title="（三） 常量"></a>（三） 常量</h3><ul>
-<li><p>用final和const定义的变量类型只能被设置一次 const 是隐式final 是一个编译时常量 即在使用const声明的常量必须是已经确定的值 定义第一次使用即为初始化</p>
-</li>
-<li><p>被final和const修饰的变量，变量类型可以省略 例如<br>const name1 = ‘张三’;</p>
-</li>
-<li><p>final和const不能同时和var使用 但可以和基本类型例如 int String等同时使用</p>
-</li>
-<li><p>常量如果是类级别 的 要用 static修饰</p>
-</li>
-<li><p>const关键字不只是声明常数变量 也可以使用它来创建常量值 以及声明创建的常量值的巩固早函数 任何变量都可以有一个常量值 // [] 创建的是一个空的list集合 const[]创建的事一个空的 不可变的 列表 （EIL） var varlist = const[]; final finalList = const[]; const constList = const[]; varList = [“haha”];</p>
-</li>
-<li><p>只要任何插值表达式是一个计算结果为null或数字 字符串或布尔值的编译时常量，那么文字字符串就是编译时常量</p>
         
           <a class="article-more-a" href="/2019/04/17/Dart学习笔记/#more">more >></a>
         
       
 
       
-    </li></ul></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -283,25 +271,13 @@ var _hmt = _hmt || [];
 <li>为何使用Flutter？</li>
 </ol>
 <p>开发效率高，一套代码可以开发出Android、ios、Fuchsia平台应用，同样的功能只需要很少的代码，如果你只开发一个平台的应用，使用时髦的、更具有表达性的开发语言，也可以让你用更少的代码来实现同样的功能。</p>
-<ol>
-<li>热加载</li>
-</ol>
-<p>在应用运行的时候就可以修改代码并重新加载修改后的功能(hot reload)</p>
-<p>采用Material Design设计语言规范，该规范定义了用户界面上的元素的用途、外观、展现形势以及形态的规范。</p>
-<ol>
-<li>Flutter和ReactNative的比较</li>
-</ol>
-<ul>
-<li><p>Flutter 是谷歌开发 的一种框架，而ReactNative是Facebook开发 d</p>
-</li>
-<li><p>ReactNative的空间都是在原生控件上扩展，如ReactNative里的ListView在android平台下的实现就是继承于android里的LIstView。在Flutter中，它的所有UI组件都是一帧一帧画出来的，这样能够很灵活的做出你想要的效果</p>
         
           <a class="article-more-a" href="/2019/04/17/Flutter学习笔记1/#more">more >></a>
         
       
 
       
-    </li></ul></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -376,87 +352,24 @@ var _hmt = _hmt || [];
       
         <h1 id="一、Flutter介绍"><a href="#一、Flutter介绍" class="headerlink" title="一、Flutter介绍"></a>一、Flutter介绍</h1><h2 id="1-1-什么是Flutter"><a href="#1-1-什么是Flutter" class="headerlink" title="1.1 什么是Flutter"></a>1.1 什么是Flutter</h2><p>Flutter是一个跨平台移动UI框架，面向iOS和Android应用，提供一套基础代码的高性能高可靠软件开发工具包，使开发者能够在iOS和Android两个最主要的移动平台上，打造统一代码的高性能应用</p>
 <h2 id="1-2-Flutter的优点和特性"><a href="#1-2-Flutter的优点和特性" class="headerlink" title="1.2 Flutter的优点和特性"></a>1.2 Flutter的优点和特性</h2><ul>
-<li>采用Dart语言开发，实现同样的功能只需要很少的代码</li>
-<li>跨平台，一套代码即可实现Android和ios应用的开发</li>
-<li>拥有reload功能，使得迭代更加方便</li>
-<li>Flutter内置了对Material Design和Cupertino(ios-flavor)的组件库</li>
-<li>提供了可定制的UI组件，开发人员完全控制UI组件和布局</li>
-<li>相比于RN，Flutter避免了使用JavaScript桥接器产生的性能问题</li>
-</ul>
-<p>以下几种情况，热加载没用</p>
-<ul>
-<li>全局变量初始化</li>
-<li>静态变量初始化</li>
-<li>修改main()方法</li>
-</ul>
-<p><strong>为什么使用Dart语言？</strong></p>
-<ul>
-<li>语法简练，实现相同的功能需要很少的代码</li>
-<li>与java语言类似，上手较快</li>
-<li>Dart是用预编译的方式编译多个平台的原生代码，这允许Flutter直接与平台通信，而不需要通过执行上下文切换到javascipt桥接器</li>
-</ul>
-<p>缺点 可读性较差，各种嵌套小括号</p>
-<h2 id="1-3-Flutter虚拟机"><a href="#1-3-Flutter虚拟机" class="headerlink" title="1.3 Flutter虚拟机"></a>1.3 Flutter虚拟机</h2><p>Flutter Engine是Flutter应用程序的运行环境，开发人员可以通过Flutter框架和API在内部进行交互。 Flutter Engine使用C/C++编写，具有低延迟输入和高帧速率的特点。</p>
-<p>Android应用程序是运行在Dalvik虚拟机里面的，并且每一个应用程序对应有一个单独的Dalvik虚拟机实例，但是Flutter应用程序不使用Dalvik虚拟机。</p>
-<p>通过观察安装包的内容，可以发现lib目录的大小约为48M，所以安装包庞大的主因就在lib目录。lib目录下包含x86_64、x86和armeabi-v7a三种CPU类型的指令集，由此可见，Flutter编译的Android应用程序自带独立的虚拟机，也就是上面提到的Flutter Engine。</p>
-<p>Android和iOS系统则是在程序包中内置Flutter Engine虚拟机以运行Flutter应用程序</p>
-<p>RN是将一种设计理念延伸到两个平台，而Flutter则实现了一套代码，部署多个平台。 而Dart “generational garbage collection” 则对于对象消耗资源相对较少的系统非常有效。而且使用单个个pointer bump来完成对象的分配，有助于避免UI卡顿。</p>
-<p>缺点 可读性较差，各种嵌套</p>
-<p>Flutter中UI组件和渲染器都从平台中集成到用户的应用程序中，所以原来虚拟的控件树是真实的控件树，所以渲染和绘制的速度会很快，动画发生在用户空间中，开发人员也可以对其进行很多的控制。有网友在亲测了Flutter后表示：在页面渲染方面，Flutter比RN各具优势，图片量越大，Flutter的流畅度优势越大。 除此之外，在以下方面Flutter也有优势： · 响应式视图，不需要JavaScript的桥接器 · 性能更好，兼容性更好 · 代码将AOT编译为本机(ARM)代码 · 美观，可定制的UI组件，开发人员完全控制UI组件和布局 · 强大的开发者工具，惊人的热重新加载</p>
-<h1 id="二、代码结构"><a href="#二、代码结构" class="headerlink" title="二、代码结构"></a>二、代码结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line"></span><br><span class="line">void main() =&gt; runApp(new MyApp());</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">  </span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return new MaterialApp(</span><br><span class="line">      title: &apos;Flutter Demo&apos;,</span><br><span class="line">      theme: new ThemeData(</span><br><span class="line"></span><br><span class="line">        primarySwatch: Colors.blue,</span><br><span class="line">      ),</span><br><span class="line">      home: new MyHomePage(title: &apos;Flutter Demo Home Page&apos;),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyHomePage extends StatefulWidget &#123;</span><br><span class="line">  MyHomePage(&#123;Key key, this.title&#125;) : super(key: key);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  final String title;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  _MyHomePageState createState() =&gt; new _MyHomePageState();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class _MyHomePageState extends State&lt;MyHomePage&gt; &#123;</span><br><span class="line">  int _counter = 0;</span><br><span class="line"></span><br><span class="line">  void _incrementCounter() &#123;</span><br><span class="line">    setState(() &#123;</span><br><span class="line">      _counter++;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line"></span><br><span class="line">    return new Scaffold(</span><br><span class="line">      appBar: new AppBar(</span><br><span class="line"></span><br><span class="line">        title: new Text(widget.title),</span><br><span class="line">      ),</span><br><span class="line">      body: new Center(</span><br><span class="line"></span><br><span class="line">        child: new Column(</span><br><span class="line"></span><br><span class="line">          mainAxisAlignment: MainAxisAlignment.center,</span><br><span class="line">          children: &lt;Widget&gt;[</span><br><span class="line">            new Text(</span><br><span class="line">              &apos;You have pushed the button this many times:&apos;,</span><br><span class="line">            ),</span><br><span class="line">            new Text(</span><br><span class="line">              &apos;$_counter&apos;,</span><br><span class="line">              style: Theme.of(context).textTheme.display1,</span><br><span class="line">            ),</span><br><span class="line">          ],</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">      floatingActionButton: new FloatingActionButton(</span><br><span class="line">        onPressed: _incrementCounter,</span><br><span class="line">        tooltip: &apos;Increment&apos;,</span><br><span class="line">        child: new Icon(Icons.add),</span><br><span class="line">      ), // This trailing comma makes auto-formatting nicer for build methods.</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>先导入包 然后创建Widget控件继承StatelessWidget或者StatefulWidget，重写build方法。</p>
-<p>Scaffold的中文意思是脚手架，顾名思义就是帮助我们快速构建APP</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">const Scaffold(&#123;</span><br><span class="line">    Key key,</span><br><span class="line">    this.appBar,//标题栏</span><br><span class="line">    this.body,//内容</span><br><span class="line">    this.floatingActionButton,//悬浮按钮</span><br><span class="line">    this.persistentFooterButtons.//多状态按钮</span><br><span class="line">    this.drawer.//抽屉菜单</span><br><span class="line">    this.endDrawer,//右侧抽屉菜单</span><br><span class="line">    this.bottomNavigationBar,//底部导航栏</span><br><span class="line">    this.backgroundColor,//背景颜色</span><br><span class="line">    this.resizeToAvoidBottomPadding:true,</span><br><span class="line">    this.primary:true,</span><br><span class="line">&#125;)</span><br><span class="line">MaterialApp(&#123; // can&apos;t be const because the asserts use methods on Map :-(</span><br><span class="line">    Key key,</span><br><span class="line">    this.navigatorKey,</span><br><span class="line">    this.home,</span><br><span class="line">    this.routes: const &lt;String, WidgetBuilder&gt;&#123;&#125;,</span><br><span class="line">    this.initialRoute,</span><br><span class="line">    this.onGenerateRoute,</span><br><span class="line">    this.onUnknownRoute,</span><br><span class="line">    this.navigatorObservers: const &lt;NavigatorObserver&gt;[],</span><br><span class="line">    this.builder,</span><br><span class="line">    this.title: &apos;&apos;,</span><br><span class="line">    this.onGenerateTitle,</span><br><span class="line">    this.color,</span><br><span class="line">    this.theme,</span><br><span class="line">    this.locale,</span><br><span class="line">    this.localizationsDelegates,</span><br><span class="line">    this.localeResolutionCallback,</span><br><span class="line">    this.supportedLocales: const &lt;Locale&gt;[const Locale(&apos;en&apos;, &apos;US&apos;)],</span><br><span class="line">    this.debugShowMaterialGrid: false,</span><br><span class="line">    this.showPerformanceOverlay: false,</span><br><span class="line">    this.checkerboardRasterCacheImages: false,</span><br><span class="line">    this.checkerboardOffscreenLayers: false,</span><br><span class="line">    this.showSemanticsDebugger: false,</span><br><span class="line">    this.debugShowCheckedModeBanner: true,</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-<p>然后在main()函数中调用runApp函数，这样就可以启动一个Flutter应用。</p>
-<h1 id="三、控件"><a href="#三、控件" class="headerlink" title="三、控件"></a>三、控件</h1><h2 id="3-1-控件基础"><a href="#3-1-控件基础" class="headerlink" title="3.1 控件基础"></a>3.1 控件基础</h2><p>在Flutter中，一切皆控件，即Widget。Widget是使用Flutter构建UI 的基本模块，是Flutter中统一的对象模型。</p>
-<p>一个Widget可以定义成如下内容</p>
-<ul>
-<li>一个结构化元素，例如按钮，菜单</li>
-<li>一个布局，例如column</li>
-<li>一个风格元素，比如字体或颜色方案</li>
-<li>一个布局的某个属性，如padding</li>
-<li>其他</li>
-</ul>
-<p>一个应用就是由许许多多的Widget组合而成的。Widget通过组合形式构成层次结构，Widget互相嵌套并继承父Widget的属性。</p>
-<p>通过Widget可以响应用户交互，通知框架将视图结构中的Widget替换为另一个Widget，框架会对比新旧Widget然后高效的更新UI。</p>
-<p>基本控件</p>
-<ul>
-<li>Text：文本控件，可创建各种样式的文本</li>
-<li>Container：创建矩形的可视元素，相当于html中的div</li>
-<li>Column、Row：Flex控件，可创建水平或垂直方向的布局</li>
-</ul>
-<h2 id="3-2-StatelessWidget和StatefulWidget"><a href="#3-2-StatelessWidget和StatefulWidget" class="headerlink" title="3.2 StatelessWidget和StatefulWidget"></a>3.2 StatelessWidget和StatefulWidget</h2><h3 id="StatelessWidget"><a href="#StatelessWidget" class="headerlink" title="StatelessWidget"></a>StatelessWidget</h3><p>StatelessWidget为无状态控件，它通过构建一系列的小部件来更加具体描述用户界面，它是静态的，依赖于对象本身的配置信息。</p>
-<h3 id="StatefulWidget"><a href="#StatefulWidget" class="headerlink" title="StatefulWidget"></a>StatefulWidget</h3><p>具有可变状态的组件</p>
-<p>状态是可以在构建Widget时同步读取和在Widget的生命周期期间可能改变的信息。</p>
-<p>StatefulWidget本身是不可变的，将其可变状态存储在由createState方法创建的独立状态对象中，独立状态对象可以改变，当状态改变时，调用setState()来更新用户界面，StatefulWidget显示的内容即发生了改变。</p>
-<p>stateless（无状态）控件没有内部状态来管理。Icon、IconButton和Text是无状态控件的示例，它是StatelessWidget的子类。</p>
-<p>stateful（有状态）控件是动态的。用户可以与有状态控件（比如通过键入内容或移动滑块）进行交互，或者随着时间的推移而变化（比如数据Feed会导致UI更新）。Checkbox、Radio、Slider、InkWell、Form和TextField是有状态小部件的示例，它们是StatefulWidget的子类。</p>
-<h2 id="3-3-可视控件和布局控件"><a href="#3-3-可视控件和布局控件" class="headerlink" title="3.3 可视控件和布局控件"></a>3.3 可视控件和布局控件</h2><p>flutter的内置控件分为两种，一种是可视控件，另一种为布局控件</p>
-<ul>
-<li>可视控件即为我们可以直接看到的控件，由页面直接展示出来的控件，例如text、icon、button</li>
-<li>布局控件，可以理解为支架，例如Column、Row、Container。布局控件是不会直接显示内容的，可以理解为承载可视控件的容器。布局控件都有承载子控件的属性：child或children。child可承载一个子控件，children可承载多个子控件。</li>
-</ul>
-<h1 id="三、路由跳转"><a href="#三、路由跳转" class="headerlink" title="三、路由跳转"></a>三、路由跳转</h1><h2 id="3-1-静态路由"><a href="#3-1-静态路由" class="headerlink" title="3.1 静态路由"></a>3.1 静态路由</h2><p>在Flutter中有着两种路由跳转方式，一种是静态路由，在创建时就已经明确知道了要跳转的页面和值。另一种是动态路由，跳转传入的目标地址和要传入的值都可以是动态的。</p>
-<p>MaterialApp中有着很多属性参数，之前用到的是home，它还有一个属性参数routes用来定义路由。</p>
-<p>创建跳转界面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">routes: &lt;String, WidgetBuilder&gt;&#123;</span><br><span class="line">      &apos;/page2&apos;: (BuildContext context) =&gt; new Page2(&quot;I am from Page1&quot;),</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-<p>在onPressed中设置跳转</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onPressed: () &#123;</span><br><span class="line">           Navigator.of(context).pushNamed(&quot;/page2&quot;);</span><br><span class="line">         &#125;,</span><br></pre></td></tr></table></figure>
-<h2 id="3-2-动态路由"><a href="#3-2-动态路由" class="headerlink" title="3.2 动态路由"></a>3.2 动态路由</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Navigator.of(context).push(new PageRouteBuilder(</span><br><span class="line">                        pageBuilder: (BuildContext context,</span><br><span class="line">                            Animation&lt;double&gt; animation,</span><br><span class="line">                            Animation&lt;double&gt; secondaryAnimation) &#123;</span><br><span class="line">                          return new Page2(&quot;some attrs you like &quot;);</span><br><span class="line"></span><br><span class="line">                        &#125;))</span><br></pre></td></tr></table></figure>
-<h1 id="四、网络"><a href="#四、网络" class="headerlink" title="四、网络"></a>四、网络</h1><p>导入第三方插件并进行同步：http: ^0.11.3+16</p>
-<p>导入插件：import ‘package:http/http.dart’ as http</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line">import &apos;package:http/http.dart&apos; as http;</span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line">  runApp(new MaterialApp(home: new MyApp(),));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">  void httpGet() &#123;</span><br><span class="line">    print(&quot;请求开始&quot;);</span><br><span class="line">    http.get(&quot;https://api.github.com/users/flyou&quot;).then((response) &#123;</span><br><span class="line">      print(&quot;请求内容：&quot;+response.body);</span><br><span class="line">    &#125;).catchError((error) &#123;</span><br><span class="line">      print(&quot;请求出错：&quot; + error.toString());</span><br><span class="line">    &#125;).whenComplete(() &#123;</span><br><span class="line">      print(&quot;请求完成&quot;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return Scaffold(</span><br><span class="line">      appBar: AppBar(</span><br><span class="line">        title: Text(&quot;网络操作&quot;),</span><br><span class="line">      ),</span><br><span class="line">      body: Center(</span><br><span class="line">        child: RaisedButton(</span><br><span class="line">          onPressed: () &#123;httpGet();&#125;,</span><br><span class="line">          child: Text(&quot;获取用户信息&quot;),</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当用户点击时便会触发上，上面的httpGet方法。 httpGet方法里面会调用http的get请求，请求github api，使用then来接收正常的返回信息，使用catchError来接受异常的信息，当请求完成时会触发whenComplete</p>
-<h1 id="六、异步操作"><a href="#六、异步操作" class="headerlink" title="六、异步操作"></a>六、异步操作</h1><p>Dart是单线程的编程语言</p>
-<p>使用Future可以是同步操作异步化</p>
-<p>Future可以使用async和await来回去</p>
-<p>Future可以处理链式调用和多个Future同时返回结果</p>
-<h1 id="五、数据库"><a href="#五、数据库" class="headerlink" title="五、数据库"></a>五、数据库</h1><p>sqflite: “^0.11.0+1” path_provider: ^0.4.0</p>
-
+<li><p>采用Dart语言开发，实现同样的功能只需要很少的代码</p>
+</li>
+<li><p>跨平台，一套代码即可实现Android和ios应用的开发</p>
+</li>
+<li><p>拥有reload功能，使得迭代更加方便</p>
+</li>
+<li><p>Flutter内置了对Material Design和Cupertino(ios-flavor)的组件库</p>
+</li>
+<li><p>提供了可定制的UI组件，开发人员完全控制UI组件和布局</p>
+</li>
+<li><p>相比于RN，Flutter避免了使用JavaScript桥接器产生的性能问题</p>
+        
+          <a class="article-more-a" href="/2019/04/17/Flutter学习笔记2/#more">more >></a>
+        
       
 
       
-    </div>
+    </li></ul></div>
     <div class="article-info article-info-index">
       
       
